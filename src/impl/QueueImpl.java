@@ -25,6 +25,7 @@ public class QueueImpl extends Queue {
 
 	@Override
 	public int size() {
+
 		return -1;
 	}
 
@@ -47,14 +48,24 @@ public class QueueImpl extends Queue {
 	public Iterator<Person> iterator() {
 		return new Iterator<Person>() {
 
+			Node current = first;
+
 			@Override
 			public boolean hasNext() {
-				return false;
+				return current != null;
 			}
 
 			@Override
 			public Person next() {
-				return null;
+				if (current == null) {
+					throw new NoSuchElementException();
+				}
+				// get the person from the node
+				Person person = current.person;
+				// get to the next node
+				current = current.next;
+
+				return person;
 			}
 
 		};

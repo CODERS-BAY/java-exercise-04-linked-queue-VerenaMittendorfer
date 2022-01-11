@@ -15,7 +15,9 @@ public abstract class Queue {
 	 * 
 	 * @param p Person to insert
 	 */
-	public abstract void add(Person p);
+	public abstract void add(Person p) {
+
+	};
 	/**
 	 * Returns the first element of the queue and deletes it.
 	 * 
